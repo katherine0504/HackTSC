@@ -2,6 +2,7 @@ import csv
 import os
 import sys
 from datetime import datetime
+from math import log10
 
 readfile = open('./BookingRecord.csv', 'r', encoding = 'utf8')
 reader = csv.reader(readfile)
@@ -30,7 +31,7 @@ returnpath = './out.csv'
 writefile = open(returnpath, 'w', newline='')
 writer = csv.writer(writefile)
 
-writer.writerow(["City", "Checkin Date", "Checkout Date", "Booked Time", "Quantity", "Amount", "Age", "Gender", "Hometown", "isForeigner"])
+writer.writerow(["City", "Checkin Date", "Checkout Date", "Booked Time", "Quantity", "Amount", "Age", "Gender", "Hometown", "isForeigner", "Nights Stayed", "Days Prior", "Age(modified)", "Price(per night)", "Time of day"])
 
 for i in range(len(modified_data)):
   data_row = modified_data[i]
@@ -82,5 +83,25 @@ for i in range(len(modified_data)):
     return_isForeigner = "no"
   else:
     return_isForeigner = "yes"
+  
+  # calculate how many nights the custumor stayed
+  return_nights = (return_checkout - return_checkin).days
 
-  writer.writerow([hotel_location, return_checkin, return_checkout, return_bookedtime, return_quantity, return_amount, return_age, return_gender, return_hometown, return_isForeigner])
+  # calculate how many days they booked in advance
+  return_prior = (return_checkin - return_bookedtime.date()).days
+
+  # modify the age
+  return_log_age = "%.4f" % log10(return_age + 1)
+
+  # calculate the price per night
+  return_price = int(return_amount / (return_quantity * int(return_nights)))
+
+  if return_bookedtime.hour <= 5:
+    return_timeofday = "midnight"
+  elif return_bookedtime.hour > 5 and return_bookedtime.hour <= 11:
+    return_timeofday = "morning"
+  elif return_bookedtime.hour > 11 and return_bookedtime.hour <= 17:
+    return_timeofday = "afternoon"
+  else:
+    return_timeofday = "night"
+  writer.writerow([hotel_location, return_checkin, return_checkout, return_bookedtime, return_quantity, return_amount, return_age, return_gender, return_hometown, return_isForeigner, return_nights, return_prior, return_log_age, return_price, return_timeofday])

@@ -1,11 +1,29 @@
 import csv
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from math import log10
 
 readfile = open('./BookingRecord.csv', 'r', encoding = 'utf8')
 reader = csv.reader(readfile)
+
+def judgeWeekend(theDate):
+  if theDate.weekday() == 4 or theDate.weekday() == 5:
+    return "weekend"
+  elif theDate == datetime(2014, 1, 1) or theDate == datetime(2014, 1, 30) or theDate == datetime(2014, 1, 31):
+    return "weekend"
+  elif theDate == datetime(2014, 2, 3) or theDate == datetime(2014, 2, 4) or theDate == datetime(2014, 2, 28):
+    return "weekend"
+  elif theDate == datetime(2014, 4, 4) or theDate == datetime(2014, 6, 2) or theDate == datetime(2014, 9, 8) or theDate == datetime(2014, 10, 10):
+    return "weekend"
+  elif theDate == datetime(2015, 1, 1) or theDate == datetime(2015, 1, 2) or theDate == datetime(2015, 2, 18) or theDate == datetime(2015, 2, 19):
+    return "weekend"
+  elif theDate == datetime(2015, 2, 20) or theDate == datetime(2015, 2, 23) or theDate == datetime(2015, 2, 27):
+    return "weekend"
+  elif theDate.month == 7 or theDate.month == 8:
+    return "summer"
+  else:
+    return "weekday"
 
 modified_data = []
 cnt = 0
@@ -31,18 +49,24 @@ returnpath = './out.csv'
 writefile = open(returnpath, 'w', newline='')
 writer = csv.writer(writefile)
 
-writer.writerow(["City", "Checkin Date", "Checkout Date", "Booked Time", "Quantity", "Amount", "Age", "Gender", "Hometown", "isForeigner", "Nights Stayed", "Days Prior", "Age(modified)", "Price(per night)", "Time of day"])
+writer.writerow(["City", "Checkin Date", "Checkout Date", "Booked Time", "Quantity", "Amount", "Age", "Gender", "Hometown", "isForeigner", "Nights Stayed", "Days Prior", "Age(modified)", "Price(per night)", "Time of day", "Time of week"])
 
 for i in range(len(modified_data)):
   data_row = modified_data[i]
   
   # classify the hotel location
-  if data_row[0] in ['台南市', '桃園縣'] :
-    hotel_location = "west"
-  elif data_row[0] in ['台北市', '台中市'] :
-    hotel_location = "city"
-  elif data_row[0] in ['臺東縣', '花蓮縣']:
-    hotel_location = "east"
+  if data_row[0] == "台南市":
+    hotel_location = "tainan"
+  elif data_row[0] == "台北市":
+    hotel_location = "taipei"
+  elif data_row[0] == "桃園縣":
+    hotel_location = "taoyuan"
+  elif data_row[0] ==  "台中市":
+    hotel_location = "taichung"
+  elif data_row[0] ==  "臺東縣":
+    hotel_location = "taitung"
+  elif data_row[0] ==  "花蓮縣":
+    hotel_location = "hualien"
   else:
     hotel_location = "err"
   
@@ -104,4 +128,25 @@ for i in range(len(modified_data)):
     return_timeofday = "afternoon"
   else:
     return_timeofday = "night"
-  writer.writerow([hotel_location, return_checkin, return_checkout, return_bookedtime, return_quantity, return_amount, return_age, return_gender, return_hometown, return_isForeigner, return_nights, return_prior, return_log_age, return_price, return_timeofday])
+
+  # judge weekday or weekend
+  if (return_nights == 1):
+    return_holiday = judgeWeekend(return_checkin)
+
+  else:
+    i = 1
+    tmp = judgeWeekend(return_checkin)
+    mixed = False
+    while i < return_nights:
+      new = judgeWeekend(return_checkin + timedelta(days=i))
+      i = i + 1
+      if tmp != new:
+        mixed = True
+        break
+      
+    if mixed:
+      return_holiday = "mixed"
+    else:
+      return_holiday = tmp
+
+  writer.writerow([hotel_location, return_checkin, return_checkout, return_bookedtime, return_quantity, return_amount, return_age, return_gender, return_hometown, return_isForeigner, return_nights, return_prior, return_log_age, return_price, return_timeofday, return_holiday])

@@ -49,7 +49,7 @@ returnpath = './out.csv'
 writefile = open(returnpath, 'w', newline='')
 writer = csv.writer(writefile)
 
-writer.writerow(["City", "Checkin Date", "Checkout Date", "Booked Time", "Quantity", "Amount", "Age", "Gender", "Hometown", "isForeigner", "Nights Stayed", "Days Prior", "Age(modified)", "Price(per night)", "Time of day", "Time of week"])
+writer.writerow(["City", "Checkin Date", "Checkout Date", "Booked Time", "Quantity", "Amount", "Age", "Gender", "Hometown", "isForeigner", "Nights Stayed", "Days Prior", "Days Prior(modified)", "Age(modified)", "Price(per night)", "Time of day", "Time of week"])
 
 for i in range(len(modified_data)):
   data_row = modified_data[i]
@@ -113,6 +113,7 @@ for i in range(len(modified_data)):
 
   # calculate how many days they booked in advance
   return_prior = (return_checkin - return_bookedtime.date()).days
+  return_prior_modify = "%.4f" % log10(int(return_prior + 1))
 
   # modify the age
   return_log_age = "%.4f" % log10(return_age + 1)
@@ -149,4 +150,4 @@ for i in range(len(modified_data)):
     else:
       return_holiday = tmp
 
-  writer.writerow([hotel_location, return_checkin, return_checkout, return_bookedtime, return_quantity, return_amount, return_age, return_gender, return_hometown, return_isForeigner, return_nights, return_prior, return_log_age, return_price, return_timeofday, return_holiday])
+  writer.writerow([hotel_location, return_checkin, return_checkout, return_bookedtime, return_quantity, return_amount, return_age, return_gender, return_hometown, return_isForeigner, return_nights, return_prior, return_prior_modify, return_log_age, return_price, return_timeofday, return_holiday])

@@ -12,15 +12,80 @@
     </head>
     <body>
         <div class="container">
-            <div class="jumbotron vertical-center">
+            <div id="intro" class="jumbotron vertical-center">
                 <h1 class="display-3">推薦您想住的地方</h1>
                 <p class="lead">只要輸入基本資料，我們就能知道你想住哪！</p>
                 <hr class="my-4">
                 <p class="bold">放心，我們不會存取您的敏感資料</p>
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">開始吧！</a>
+                    <a class="btn btn-primary btn-lg" href="#" role="button" onclick="startOnclick();">開始吧！</a>
                 </p>
-                <a class="btn" href="#" role="button">看看別人都住哪</a>
+                <a class="btn" href="https://app.powerbi.com/view?r=eyJrIjoiYzJhMGZhMjMtNGJhNi00NmYxLWI5ZTUtMzk3YmQ4NTM4YjljIiwidCI6ImMyZTc3NTNmLWFhMDUtNGFiYy04YzAyLTI5M2FkMTIyY2ExOSIsImMiOjEwfQ%3D%3D" role="button">看看別人都住哪</a>
+            </div>
+            <div id="form" class="jumbotron vertical-center">
+                <div class="form-group">
+                    <label for="cityInput">想去的城市</label>
+                    <select class="form-control" id="cityInput">
+                        <option value="taipei">台北</option>
+                        <option value="taichung">台中</option>
+                        <option value="hualien">花蓮</option>
+                        <option value="tainan">台南</option>
+                        <option value="taitung">台東</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nightInput">想待幾晚</label>
+                    <input type="number" class="form-control" id="nightInput" placeholder="想待幾晚">
+                </div>
+                <div class="form-group">
+                    <label for="ageInput">年齡</label>
+                    <input type="number" class="form-control" id="ageInput" placeholder="年齡">
+                </div>
+                <div class="form-group">
+                    <label for="homeInput">家鄉</label>
+                    <select class="form-control" id="homeInput">
+                            <option value="1">台北市</option>
+                            <option value="1">新竹市</option>
+                            <option value="1">新竹縣</option>
+                            <option value="1">基隆市</option>
+                            <option value="1">桃園縣</option>
+                            <option value="2">高雄市</option>
+                            <option value="2">新北市</option>
+                            <option value="2">花蓮縣</option>
+                            <option value="2">宜蘭縣</option>
+                            <option value="2">台中市</option>
+                            <option value="3">南投縣</option>
+                            <option value="3">澎湖縣</option>
+                            <option value="3">嘉義市</option>
+                            <option value="3">台南市</option>
+                            <option value="3">苗栗縣</option>
+                            <option value="3">嘉義縣</option>
+                            <option value="3">屏東縣</option>
+                            <option value="4">連江縣</option>
+                            <option value="4">彰化縣</option>
+                            <option value="4">雲林縣</option>
+                            <option value="4">金門縣</option>
+                            <option value="4">臺東縣</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="weekInput">想去的時間</label>
+                    <select class="form-control" id="weekInput">
+                        <option value="weekend">假日</option>
+                        <option value="weekday">平日</option>
+                    </select>
+                </div>
+                <div style="text-align: center;">
+                    <a class="btn btn-primary btn-lg" href="#" role="button" onclick="submitClick();">送出</a>
+                </div>
+            </div>
+            <div id="result" class="jumbotron vertical-center">
+                <h1 class="display-5">我們預測您會想花 $<span id="priceval"></span>/晚 在住宿上</h1>
+                <div id="msg"></div>
+                <br>
+                <div style="text-align: center;">
+                    <h1>馬上到 <a class="btn btn-primary btn-lg" href="https://www.ez-lohas.com.tw/THClient/index.aspx" target="_blank" role="button">樂活網</a> 訂房去</h1>
+                </div>
             </div>
         </div>
 
@@ -29,15 +94,6 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-        <script>
-            $(document).ready(function(){
-                var winHeight = $(window).height();
-                var jHeight = $('.jumbotron').height();
-                $('.jumbotron').css({
-                    marginTop: (winHeight / 3) - (jHeight / 2) + 'px'
-                });
-                $('.jumbotron').fadeIn(1000);
-            })
-        </script>
+        <script src="./index.js"></script>
     </body>
 </html>

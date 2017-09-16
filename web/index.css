@@ -1,4 +1,16 @@
-.vertical-center {
+#intro {
     text-align: center;
     display: none;
+}
+
+#form {
+    display: none;
+}
+
+#result {
+    display: none;
+}
+
+#carouselExampleSlidesOnly {
+    width: 500px;
 }

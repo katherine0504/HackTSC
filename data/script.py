@@ -89,18 +89,16 @@ for i in range(len(modified_data)):
     return_gender = "others"
 
   # classify hometown
-  if data_row[8] in ['台北市', '新竹市', '新竹縣', '基隆市', '桃園縣', '臺北市']:
+  if data_row[8] in ['台北市', '新竹市', '新竹縣', '基隆市', '桃園市', '桃園縣', '臺北市']:
     return_hometown = "highest"
   elif data_row[8] in ['高雄市', '新北市', '花蓮縣', '宜蘭縣', '台中市', '臺中市']:
     return_hometown = "high"
-  elif data_row[8] in ['南投縣', '澎湖縣', '嘉義市', '台南市', '苗栗縣', '嘉義縣', '屏東縣', '臺南市']:
+  elif data_row[8] in ['南投縣', '澎湖縣', '嘉義市', '台南市', '苗栗縣', '苗粟縣', '嘉義縣', '屏東縣', '臺南市']:
     return_hometown = "low"
   elif data_row[8] in ['連江縣', '彰化縣', '雲林縣', '金門縣', '臺東縣']:
     return_hometown = "lowest"
-  elif data_row[8] in ['非台灣地區']:
-    return_hometown = "foreign"
   else:
-    return_hometown = "others"
+    return_hometown = "foreign"
 
   # classify foreigner
   if data_row[9] == "本國":

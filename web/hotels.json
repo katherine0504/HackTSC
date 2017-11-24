@@ -1,0 +1,94 @@
+{
+    "taipei": {
+        "name": "台糖台北會館",
+        "price": [2999, 5630],
+        "images": [
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00013/TH00013_02.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00013/TH00013_03.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00013/TH00013_04.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00013/TH00013_05.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00013/TH00013_06.jpg"
+        ]
+    },
+    "taichung": {
+        "name": "台中中科大飯店",
+        "price": [3100, 5600],
+        "images": [
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00004/TH00004_02.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00004/TH00004_03.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00004/TH00004_04.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00004/TH00004_05.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00004/TH00004_06.jpg"
+        ]
+    },
+    "hualien": [
+        {
+            "name": "花蓮觀光糖廠",
+            "price": [2520, 4200],
+            "images": [
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00006/TH00006_02.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00006/TH00006_03.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00006/TH00006_04.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00006/TH00006_05.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00006/TH00006_06.jpg"
+            ]
+        },
+        {
+            "name": "麗格休閒飯店",
+            "price": [2310, 4620],
+            "images": [
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00014/TH00014_02.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00014/TH00014_03.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00014/TH00014_04.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00014/TH00014_05.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00014/TH00014_06.jpg"
+            ]
+        },
+        {
+            "name": "麗軒國際飯店",
+            "price": [2580, 5720],
+            "images": [
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00015/TH00015_02.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00015/TH00015_03.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00015/TH00015_04.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00015/TH00015_05.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00015/TH00015_06.jpg"
+            ]
+        }
+    ],
+    "tainan": [
+        {
+            "name": "台糖長榮酒店",
+            "price": [4999, 6800],
+            "images": [
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00001/TH00001_02.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00001/TH00001_03.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00001/TH00001_04.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00001/TH00001_05.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00001/TH00001_06.jpg"
+            ]
+        },
+        {
+            "name": "尖山埤江南渡假村",
+            "price": [4000, 6700],
+            "images": [
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00002/TH00002_02.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00002/TH00002_03.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00002/TH00002_04.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00002/TH00002_05.jpg",
+                "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00002/TH00002_06.jpg"
+            ]
+        }
+    ],
+    "taitung": {
+        "name": "池上牧野渡假村",
+        "price": [3800, 6200],
+        "images": [
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00003/TH00003_02.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00003/TH00003_03.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00003/TH00003_04.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00003/TH00003_05.jpg",
+            "https://www.ez-lohas.com.tw/THClient/images/Hotel/TH00003/TH00003_06.jpg"
+        ]
+    }
+}
